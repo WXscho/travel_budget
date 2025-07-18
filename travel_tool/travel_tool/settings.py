@@ -29,9 +29,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# I needed to install the application
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'booking',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
