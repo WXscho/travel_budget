@@ -11,7 +11,7 @@ class Hotel(models.Model):
   hotel_address = models.CharField(max_length=100)
   hotel_city = models.CharField(max_length=100)
   hotel_state = models.CharField(max_length=100)
-  hotel_zip = models.CharField(max_length=100)
+  hotel_zip = models.CharField(max_length=11)
   hotel_rated= models.DecimalField(decimal_places=1,
                                    max_digits=2,
                                    choices=[(x/2, f"{x/2}") for x in range(2,11)]

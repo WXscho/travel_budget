@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Hotel List</title>
+</head>
+<body>
+  <h1>Hotels</h1>
+  <ul>
+    {% for hotel in hotels %}
+      <li>{{hotel.hotel_name}} - Rating {{hotel.hotel_address}}</li>
+  </ul>
+</body>
+</html>
