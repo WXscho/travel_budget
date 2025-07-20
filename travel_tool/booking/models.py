@@ -18,11 +18,6 @@ class Hotel(models.Model):
                                    )
   def __str__(self):
     return f"{self.hotel_name} {self.hotel_rated} Stars"
-# Hotel
-# hotel id
-# hotel name
-# hotel address
-# hotel rating
 
 # Room metadata model
 # Booking
