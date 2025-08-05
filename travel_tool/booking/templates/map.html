@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+{% load static %}
+<html lang ="en">
+<head>
+  <title>My Google Map</title>
+  <style>
+    /* Make the map full screen */
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+    /* Incase the browser has to work in quirk mode */
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+
+  <script src="{% static 'js/map.js' %}"></script>
+  <!-- v=beta required to suppport google.maps.import.library-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkXYMnF_IcOBCNQS_iERScFy2ETP9p9_w&callback=initMap
+" async defer></script>
+</head>
+<body>
+  <h2>Google Map Example</h2>
+  <div id="result"></div>
+  <div id="map"></div>
+
+
+
+
+
+  <!-- Dummy initMap required by callback param (not used but required) -->
+
+</body>
+</html>

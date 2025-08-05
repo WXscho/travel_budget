@@ -6,10 +6,12 @@
 </head>
 <body>
   <h1>{{ hotel.hotel_name }}</h1>
+  <p>Address: {{ hotel.hotel_address }}</p>
   <p>City: {{ hotel.hotel_city }}</p>
   <p>State: {{ hotel.hotel_state }}</p>
   <p>Zip code: {{ hotel.hotel_zip }}</p>
   <p>Rating: {{ hotel.hotel_rated }}</p>
   <a href="{% url 'hotel-list' %}">Back to all hotels</a>
+  <a href="{% url 'room-list' hotel.hotel_id %}">View Rooms</a>
 </body>
 </html>

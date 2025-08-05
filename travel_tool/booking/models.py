@@ -18,15 +18,31 @@ class Hotel(models.Model):
                                    )
   def __str__(self):
     return f"{self.hotel_name} {self.hotel_rated} Stars"
+# Room Model: for every room in a hotel
+class Room(models.Model):
+  room_id = models.AutoField(primary_key=True)
+  room_type = models.CharField(max_length=100)
+  room_duration = models.DecimalField(decimal_places=1, max_digits=2)
+  room_cost = models.DecimalField(decimal_places=2, max_digits=7)
+  hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="rooms")
+
+  def __str__(self):
+    return f"{self.room_type} {self.room_type}"
 
 # Room metadata model
 # Booking
 # room id
-# room cost per day
+# room cost
 # room duration
 # room type
 # hotel id
 
+# location model
+
+
+class Location(models.Model):
+
+    created_at = models.DateTimeField(auto_now_add=True)
 # Work metadata model
 # Work
 # work id

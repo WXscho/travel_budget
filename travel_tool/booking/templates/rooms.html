@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rooms for {{hotel_name}}</title>
+</head>
+<body>
+  <ul>
+    {% for room in rooms %}
+    <li> {{room.room_name}} - {{room.room_type}}</li>
+    {% empty %}
+    <li> No rooms available for this hotel.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'hotel-list' %}">Back to all hotels</a>
+</body>
+</html>
