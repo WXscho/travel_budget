@@ -4,39 +4,65 @@
  Copyright 2019 Google LLC. All Rights Reserved.
  SPDX-License-Identifier: Apache-2.0
 -->
-{% load static %}
-<html lang ="en">
-<head>
-  <title>My Google Map</title>
-  <style>
-    /* Make the map full screen */
-    #map {
-      height: 100vh;
-      width: 100%;
-    }
-    /* Incase the browser has to work in quirk mode */
-    html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  </style>
-
-  <script src="{% static 'js/map.js' %}"></script>
-  <!-- v=beta required to suppport google.maps.import.library-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkXYMnF_IcOBCNQS_iERScFy2ETP9p9_w&callback=initMap
-" async defer></script>
-</head>
-<body>
-  <h2>Google Map Example</h2>
-  <div id="result"></div>
-  <div id="map"></div>
 
 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>My Google Map</title>
+    {% load static %}
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        display: block;
+        background: lightblue;
+        height: 400px;
+        width: 400px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+
+      }
+    </style>
+
+  </head>
+  <body>
+    <h2>Google Map Example</h2>
+    <input type="text" id="inputAddress" placeholder="Enter an address">
+    <button id="geoBtn">Add Coordinate</button>
+    <p id="output">output</p>
 
 
+    </div>
+    <!-- gmp-map is a Google Maps Web Component -->
+    <gmp-map id="map" center="43.4142989,-124.2301242" zoom="4" style="height:400px; width:100%;">
+    </gmp-map>
+    <script type="module">
+    (g => {
+    var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;
+    b=b[c]||(b[c]={});
+    var d=b.maps||(b.maps={}), r=new Set, e=new URLSearchParams,
+    u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));
+        e.set("libraries",[...r]+"");
+        for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);
+        e.set("callback",c+".maps."+q);
+        a.src=`https://maps.${c}apis.com/maps/api/js?`+e;
+        d[q]=f; a.onerror=()=>h=n(Error(p+" could not load."));
+        m.head.append(a)
+    }));
+    d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))
+})({
+    key: "AIzaSyDkXYMnF_IcOBCNQS_iERScFy2ETP9p9_w",
+    v: "weekly",
+    libraries: ["marker"]
+});
+    </script>
 
-  <!-- Dummy initMap required by callback param (not used but required) -->
+    <script src="{% static 'js/map.js' %}" defer></script>
 
-</body>
+  </body>
 </html>
